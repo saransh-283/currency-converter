@@ -11,19 +11,17 @@
   --white-color: #f3f3f3;
 }
 
-html,
 body {
-  margin: 0;
-  padding: 0;
+  
+  color: var(--black-color);
   font-family: "Roboto", sans-serif;
   overflow: hidden;
+  display: grid;
+  place-items: center;
+  height: 100vh;
 }
 
-body {
+#root {
   background: linear-gradient(0, var(--primary-color), var(--secondary-color));
-  color: var(--black-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
+  border-radius: 8px;
 }
