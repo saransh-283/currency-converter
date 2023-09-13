@@ -1,0 +1,36 @@
+.trigger {
+    position: relative;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+
+.dropdown {
+    background: var(--white-color);
+    transition: all 0.3s ease-in-out;
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+  
+  .dropdown.inactive {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+  }
+  
+  .dropdown-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    color: var(--black-color);
+    border-bottom: 1px solid var(--secondary-color);
+  }
+
+  .dropdown-item.active {
+    background: var(--secondary-color);
+  }
+  
+  .dropdown-item:hover {
+    transition: all 0.3s ease-in-out;
+    background-color: var(--gray-color);
+  }

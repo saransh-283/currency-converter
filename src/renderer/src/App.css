@@ -1,0 +1,10 @@
+#container {
+  background: var(--white-color);
+  padding: 20px 40px;
+}
+
+#title {
+  color: var(--primary-color);
+  font-size: 2rem;
+  font-weight: 400;
+}
