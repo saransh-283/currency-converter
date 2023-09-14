@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowsRightLeftIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ArrowsRightLeftIcon, XCircleIcon } from '@heroicons/react/24/solid'
 import './App.css'
 import Input from './components/inputs/Input'
 
@@ -17,6 +17,12 @@ function App() {
         <Input value={from} set={setFrom} />
         <ArrowsRightLeftIcon className="h-6 w-6 rotate-90" />
         <Input value={to} set={setTo} />
+      </div>
+
+      <div className="absolute -top-2 right-1">
+        <XCircleIcon onClick={() => {
+          api.quit();
+        }} className="h-5 w-5 text-gray hover:text-red-500 cursor-pointer" />
       </div>
     </div>
   )

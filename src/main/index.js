@@ -35,10 +35,6 @@ function createWindow() {
   } else {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
-
-  ipcMain.on('quit', () => {
-    window.close();
-  });
 }
 
 app.whenReady().then(() => {
@@ -60,3 +56,9 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
+ipcMain.on('quit', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
+});
