@@ -1,18 +1,20 @@
 .currency {
   background: var(--lightgray-color);
+  -webkit-app-region: no-drag;
 }
 
-input[type="number"] {
+input {
     border: none;
     outline: none;
     padding: 10px 20px;
     margin: 0;
     background: transparent;
     color: inherit;
+    user-select: text;
 }
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
   -webkit-appearance: none;
   appearance: none;
   margin: 0;

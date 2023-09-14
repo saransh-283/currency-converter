@@ -1,13 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ArrowsRightLeftIcon, XCircleIcon } from '@heroicons/react/24/solid'
 import './App.css'
 import Input from './components/inputs/Input'
 import Loader from './components/Loader'
+import getExchangeRate from './services/getExchangeRate'
 
 function App() {
   const [from, setFrom] = useState('USD')
   const [to, setTo] = useState('INR')
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
+
+  const changeHandler = async () => {
+    setLoading(true)
+    const res = await getExchangeRate(from, to)
+    console.log(res);
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    changeHandler()
+  }, [from, to])
 
   return (
     <div id="container" className="shadow-md w-min rounded-md space-y-4 relative m-2">

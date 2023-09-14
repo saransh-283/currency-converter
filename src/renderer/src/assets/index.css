@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  user-select: none;
+}
+
 :root {
   --primary-color: #523e6d;
   --secondary-color: #ae307a;
@@ -12,16 +16,11 @@
 }
 
 body {
-  
+  z-index: -9999;
   color: var(--black-color);
   font-family: "Roboto", sans-serif;
   overflow: hidden;
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
   height: 100vh;
-}
-
-#root {
-  background: linear-gradient(0, var(--primary-color), var(--secondary-color));
-  border-radius: 8px;
 }

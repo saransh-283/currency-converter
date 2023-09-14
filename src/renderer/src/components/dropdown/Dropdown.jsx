@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import symbols from '../../constants/symbols.js'
+import symbols from '../../data/symbols.js'
 import './dropdown.css'
 
 const Dropdown = ({ value, set }) => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+
   const triggerRef = useRef(null)
   const dropdownRef = useRef(null)
 
@@ -15,7 +16,7 @@ const Dropdown = ({ value, set }) => {
       }
     }
 
-    if (isDropdownOpen) {
+    if (isOpen) {
       if (dropdownRef.current) {
         dropdownRef.current.classList.remove('inactive')
         document.addEventListener('click', dropdownClose)
@@ -25,27 +26,27 @@ const Dropdown = ({ value, set }) => {
     return () => {
       document.removeEventListener('click', dropdownClose)
     }
-  }, [isDropdownOpen])
+  }, [isOpen])
 
   const handleTriggerClick = (event) => {
     event.stopPropagation()
-    setIsDropdownOpen(!isDropdownOpen)
+    setIsOpen(!isOpen)
   }
 
   return (
     <div className="trigger" id="fromTrigger" ref={triggerRef} onClick={handleTriggerClick}>
-      <p id="fromCurrency">{value}</p>
+      <p id="fromCurrency" className='z-0'>{value}</p>
       <div
-        className={`dropdown shadow-md rounded-md inactive top-full left-0 absolute overflow-x-hidden overflow-y-scroll dropdown ${
-          isDropdownOpen ? '' : 'inactive'
+        className={`dropdown z-10 shadow-md rounded-md inactive top-full left-0 absolute overflow-x-hidden overflow-y-scroll dropdown ${
+          isOpen ? '' : 'inactive'
         }`}
         id="fromDropdown"
         ref={dropdownRef}
       >
-        <ul className="dropdown-list h-48 w-full">
+        <ul className="dropdown-list z-10 h-48 w-full">
           {symbols.map((symbol, index) => {
             return (
-              <li className="dropdown-item" key={index} onClick={() => set(symbol)}>
+              <li className={`dropdown-item z-10${symbol === value} ? " active" : ""`} key={index} onClick={() => set(symbol)}>
                 {symbol}
               </li>
             )

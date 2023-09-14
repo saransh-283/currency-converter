@@ -7,4 +7,5 @@
   color: var(--primary-color);
   font-size: 2rem;
   font-weight: 400;
+  -webkit-app-region: drag;
 }

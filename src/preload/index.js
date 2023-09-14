@@ -1,10 +1,15 @@
-import { app, contextBridge, ipcRenderer } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
+import axios from 'axios'
 
 // Custom APIs for renderer
 const api = {
   quit() {
     ipcRenderer.send('quit')
+  },
+  async getConversionRate(url) {
+    const response = await axios.get(url)
+    return response.data.conversion_rate
   }
 }
 

@@ -24,6 +24,7 @@
     cursor: pointer;
     color: var(--black-color);
     border-bottom: 1px solid var(--secondary-color);
+    background: var(--lightgray-color);
   }
 
   .dropdown-item.active {
