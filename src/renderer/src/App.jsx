@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { ArrowsRightLeftIcon, XCircleIcon } from '@heroicons/react/24/solid'
 import './App.css'
 import Input from './components/inputs/Input'
+import Loader from './components/Loader'
 
 function App() {
   const [from, setFrom] = useState('USD')
   const [to, setTo] = useState('INR')
+  const [loading, setLoading] = useState(true)
 
   return (
     <div id="container" className="shadow-md w-min rounded-md space-y-4 relative m-2">
@@ -15,7 +17,10 @@ function App() {
 
       <div className="grid grid-rows-3 gap-6 place-items-center">
         <Input value={from} set={setFrom} />
-        <ArrowsRightLeftIcon className="h-6 w-6 rotate-90" />
+        {loading ? (
+          <Loader />
+        ):
+          <ArrowsRightLeftIcon className="h-6 w-6 rotate-90" />}
         <Input value={to} set={setTo} />
       </div>
 
