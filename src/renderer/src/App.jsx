@@ -26,7 +26,7 @@ function App() {
 
   const valueChangeHandler = () => {
     let temp = ""
-    if (base) temp = parseFloat((base * exchangeRate).toFixed(8))
+    if (base) temp = parseFloat((base * exchangeRate).toFixed(4))
     setExchange(temp)
   }
 
