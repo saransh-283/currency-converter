@@ -1,34 +1,27 @@
-# currency-converter
+## Setup Instructions
 
-An Electron application with React
+1. Clone the repository to your local machine:
 
-## Recommended IDE Setup
+    ```shell
+    git clone https://github.com/saransh-283/currency-converter.git
+    ```
 
-- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+2. Navigate to the project directory:
 
-## Project Setup
+    ```
+    cd currency-converter
+    ```
 
-### Install
+3. Install the required modules using npm:
 
-```bash
-$ npm install
-```
+    ```shell
+    npm install
+    ```
 
-### Development
+4. Run the project:
 
-```bash
-$ npm run dev
-```
+    ```shell
+    npm run dev
+    ```
 
-### Build
-
-```bash
-# For windows
-$ npm run build:win
-
-# For macOS
-$ npm run build:mac
-
-# For Linux
-$ npm run build:linux
-```
+Now, the project should be up and running locally on your machine.
