@@ -36,7 +36,7 @@ function App() {
   }, [fromCurrency, toCurrency])
 
   return (
-    <div id="container" className="shadow-md w-min rounded-md space-y-4 relative m-2">
+    <div id="container" className="w-min rounded-md space-y-4 relative m-2">
       <p id="title" className="uppercase text-center text-primary whitespace-nowrap">
         Currency Converter
       </p>
