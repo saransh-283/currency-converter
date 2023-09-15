@@ -24,14 +24,15 @@ function App() {
     setLoading(false)
   }
 
-  useEffect(() => {
-    let temp = base * exchangeRate
-    if (temp) temp = temp.toFixed(2)
+  const valueChangeHandler = () => {
+    let temp = ""
+    if (base) temp = parseFloat((base * exchangeRate).toFixed(8))
     setExchange(temp)
-  }, [base])
+  }
 
+  useEffect(valueChangeHandler, [base, exchangeRate])
   useEffect(() => {
-    currencyChangeHandler()
+    currencyChangeHandler();
   }, [fromCurrency, toCurrency])
 
   return (
@@ -41,10 +42,10 @@ function App() {
       </p>
 
       <div className="grid grid-rows-3 gap-6 place-items-center">
-        <Input currency={{ value: fromCurrency, set: setFromCurrency }} value={{ value: base, set: setBase }} />
+        <Input placeholder="1" currency={{ value: fromCurrency, set: setFromCurrency }} value={{ value: base, set: setBase }} />
         {loading ? <Loader /> :
           <div className="rounded-full cursor-pointer p-3 bg-lightgray" onClick={() => {
-            setExchange(base)
+            setExchangeRate(1 / exchangeRate)
             setBase(exchange)
             setFromCurrency(toCurrency)
             setToCurrency(fromCurrency)
@@ -52,7 +53,7 @@ function App() {
             <ArrowsRightLeftIcon className="h-5 w-5 rotate-90" />
           </div>
         }
-        <Input disabled currency={{ value: toCurrency, set: setToCurrency }} value={{ value: exchange, set: setExchange }} />
+        <Input placeholder={exchangeRate} disabled currency={{ value: toCurrency, set: setToCurrency }} value={{ value: exchange, set: setExchange }} />
       </div>
 
       <div className="absolute -top-2 right-1">
